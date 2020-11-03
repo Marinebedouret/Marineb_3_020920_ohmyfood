@@ -1,0 +1,328 @@
+/*Decalaration des variabes*/
+$color-primary:#9356DC;
+$color-secondary:#FF79DA;
+$color-tertiary:#99E2D0;
+$color-white: #FFF;
+$color-background:#F5F5F6;
+$color-footer:#313132;
+
+/*Declaration des mixin*/
+@mixin textroboto {
+    font-family: "Roboto", Verdana, Tahoma, sans-serif;
+}
+
+@mixin titlepolice {
+    font-family: "Shrikhand", Tahoma, Verdana, sans-serif;
+}
+
+@mixin boxshadow ($color: $color-background) {
+
+    box-shadow: 2px 4px 5px 3px darken($color, 10%);
+
+}
+
+/*GENERAL*/
+
+body {
+background-color: $color-white;
+padding: 0;
+margin: 0;
+font-size: 1rem;
+max-width: 320px;
+line-height: 1.5;
+@include textroboto;
+}
+
+h1, h2 {
+    font-size: 1.2rem;
+}
+
+h3 {
+    font-size: 1em;
+}
+
+.header {
+    height: 80px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 50%;
+    }
+}
+/*Bouton Explore our restaurants*/
+.btn {
+    padding: 10px 20px;
+    color: $color-white;
+    background: rgb(255,121,218);
+    background: linear-gradient(135deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
+    border: none;
+    border-radius: 20px;
+    margin: 10px auto 30px auto;
+    width: 60%;
+    text-align: center;
+    font-size: 1.1em;
+    @include textroboto;
+    @include boxshadow;
+    position: relative;
+    z-index: 2;
+    &:hover {
+        background: darken(rgb(255,121,218),0.35);
+    }
+}
+     /* Au passage de la souris sur le bouton le curseur change de forme*/
+
+/* Pied de page */
+.footer {
+    background-color: $color-footer;
+    color: $color-white;
+    padding-bottom: 10px;
+    &_heading {
+        font-weight: normal;
+        font-size: 1.3em;
+        padding-left: 10%;
+        padding-top: 8%;
+        margin-top: 0;
+        @include titlepolice;
+    }
+    &_menu {
+        list-style-type: none;
+        line-height: 25px;
+        padding-left: 10%;
+        font-weight: bold;
+        a {
+            text-decoration: none;
+            color: darken($color-background, 15%);
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+}
+.fa-utensils, .fa-handshake{
+    color: $color-white;
+    margin-right: 10px;
+}
+/*Page d'accueil*/
+/*Premiere section : Présentation et lcoalisation de l'entreprise*/
+
+.presentation {
+    background: $color-background;
+    text-align: center;
+    padding-bottom: 30px;
+    &_address{
+        background: darken($color-background, 3%);
+        font-size: 1.1em;
+        margin: 0 0 20px 0;
+        padding: 10px 0 10px 0;
+        i{
+            margin-right: 12px;
+        }
+    }
+    &_heading{
+        margin: 40px 50px 10px 50px;
+    }
+    &_line{
+        font-size: 1.2em;
+        margin: 10px 15px 30px 15px;
+        @include textroboto;
+    }
+}
+/*Deuxième sections : Explications de la plateform*/
+.explication {
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    padding: 10%;
+    &_heading {
+        font-size: 1.5rem;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    &_items {
+        @include boxshadow;
+        position: relative;
+        padding: 10%;
+        border-radius: 25px;
+        margin-bottom: 10%;
+        font-size: 1rem;
+        background-color:$color-background;
+        &:hover {
+            cursor : pointer;
+        }
+    }
+    &_number {
+        position: absolute;
+        left: -5px;
+        background-color: $color-primary;
+        color: $color-white;
+        border-radius: 50%;
+        padding: 4px 8px 4px 8px;
+        font-size: 0.8rem;
+    }
+}
+.explication_items {
+    display: flex;
+    &:hover {
+        background: transparentize($color-primary,0.85);
+    }
+}
+.fa-mobile-alt, .fa-list-ul, .fa-store{ 
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+  color: grey;
+}
+
+.fa-store {
+    color: $color-primary;
+}
+p {
+    font-weight: 500;
+}
+/*Troisième sections : Liste des restaurants*/
+.restaurants {
+    background-color: $color-background;
+    padding : 0 10px;
+    position: relative;
+    &_title {
+        font-size: 1.5rem;
+        padding-top: 40px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        align-self: flex-start;
+    }
+    &_heading {
+        text-decoration: none;
+    }
+    &_new {
+        position: absolute;
+        right: 15px;
+        padding: 5px 20px;
+        background-color: $color-tertiary;
+        color: darken($color-tertiary, 45%);
+        border-radius: 2px;
+
+    }
+    &_menu {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+        @include boxshadow($color-background);
+        background: $color-white;
+        border-radius: 25px;
+        
+    }
+    &_item {
+        height: 55px;
+        width: 100%;
+        margin-left: 30px;
+        justify-content: space-between;
+        line-height: 50%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        a {
+            text-decoration: none;
+            color: #000000;
+            //animation des cases restaurants au survol
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+.restaurants_picture {
+   height: 200px;
+   width: 100%;
+   border: 0px solid;
+   border-radius: 10px 10px 0 0;
+   object-fit: cover;
+   display: block;
+}
+.fa-heart {
+    font-size: 1.4rem;
+    margin: 0px 30px 40px 15px;
+}
+/*Présentation des 4 menus*/
+.return {
+    color: black;
+    font-size: 1.4rem;
+    position: absolute;
+    left: 5%;
+}
+.background_picture {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    margin: 0 auto;
+    &.palette{
+        background-image: url("../images/the_full_palette.jpg");
+    }
+    &.bastille{
+        background-image: url("../images/bastille.jpg");
+    }
+    &.enchanted{
+        background-image: url("../images/the_enchanted_plate.jpg");
+    }
+    &.gourmand{
+        background-image: url("../images/le_gourmand.jpg");
+    }
+}
+.menu_container{
+    background-color: $color-background;
+    width: 100%;
+    padding: 5%;
+    margin-top: -50px;
+}
+.name_menu{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+    .heading{
+        font-size: 1.8rem;
+        @include titlepolice;
+        }
+        .far.fa-heart{
+            position: relative;
+            margin-bottom: 2px;
+            font-size: 1.7rem;
+            cursor: pointer;
+            &:hover{
+                opacity: 0;
+                }
+            }
+        }
+.title{
+    font-size: 1.3rem;
+    font-weight: normal;
+    display: inline-block;
+    &:after{
+        content: "";
+        display: block;
+        width: 50%;
+        height: 4px;
+        background-color: $color-tertiary;
+    }
+}
+.menu_btns{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.menu_btn{
+    margin-top: 15px;
+}
