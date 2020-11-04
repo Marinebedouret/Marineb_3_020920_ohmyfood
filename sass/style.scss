@@ -30,6 +30,7 @@ margin: 0;
 font-size: 1rem;
 max-width: 320px;
 line-height: 1.5;
+width: 100%;
 @include textroboto;
 }
 
@@ -83,6 +84,7 @@ h3 {
 /* Pied de page */
 .footer {
     background-color: $color-footer;
+    width: 100%;
     color: $color-white;
     padding-bottom: 10px;
     &_heading {
@@ -283,7 +285,6 @@ p {
 }
 .menu_container{
     background-color: $color-background;
-    width: 100%;
     padding: 5%;
     margin-top: -50px;
 }
@@ -293,13 +294,14 @@ p {
     margin-bottom: 30px;
     align-items: center;
     .heading{
-        font-size: 1.8rem;
+        font-size: 1.7rem;
+        white-space: nowrap;
         @include titlepolice;
         }
         .far.fa-heart{
             position: relative;
             margin-bottom: 2px;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             cursor: pointer;
             &:hover{
                 opacity: 0;
@@ -325,4 +327,29 @@ p {
 }
 .menu_btn{
     margin-top: 15px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 15px;
+    @include boxshadow;
+    overflow: hidden;
+    cursor: pointer;
+/*animation*/
+    &_plat{
+        width: 85%;
+        padding: 10px;
+        p{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        }
+        .food{
+            font-weight: 700;
+        }
+
+    }
 }
+

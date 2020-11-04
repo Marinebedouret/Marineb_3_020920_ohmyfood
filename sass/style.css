@@ -9,6 +9,7 @@ body {
   font-size: 1rem;
   max-width: 320px;
   line-height: 1.5;
+  width: 100%;
   font-family: "Roboto", Verdana, Tahoma, sans-serif;
 }
 
@@ -78,6 +79,7 @@ h3 {
 /* Pied de page */
 .footer {
   background-color: #313132;
+  width: 100%;
   color: #FFF;
   padding-bottom: 10px;
 }
@@ -340,7 +342,6 @@ p {
 
 .menu_container {
   background-color: #F5F5F6;
-  width: 100%;
   padding: 5%;
   margin-top: -50px;
 }
@@ -359,14 +360,15 @@ p {
 }
 
 .name_menu .heading {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+  white-space: nowrap;
   font-family: "Shrikhand", Tahoma, Verdana, sans-serif;
 }
 
 .name_menu .far.fa-heart {
   position: relative;
   margin-bottom: 2px;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
@@ -399,5 +401,37 @@ p {
 
 .menu_btn {
   margin-top: 15px;
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: white;
+  border-radius: 15px;
+  -webkit-box-shadow: 2px 4px 5px 3px #dadade;
+          box-shadow: 2px 4px 5px 3px #dadade;
+  overflow: hidden;
+  cursor: pointer;
+  /*animation*/
+}
+
+.menu_btn_plat {
+  width: 85%;
+  padding: 10px;
+}
+
+.menu_btn_plat p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.menu_btn_plat .food {
+  font-weight: 700;
 }
 /*# sourceMappingURL=style.css.map */
