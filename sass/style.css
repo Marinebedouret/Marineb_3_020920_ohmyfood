@@ -8,17 +8,8 @@ body {
   margin: 0;
   font-size: 1rem;
   max-width: 320px;
-  line-height: 1.5;
-  width: 100%;
+  line-height: normal;
   font-family: "Roboto", Verdana, Tahoma, sans-serif;
-}
-
-h1, h2 {
-  font-size: 1.2rem;
-}
-
-h3 {
-  font-size: 1em;
 }
 
 .header {
@@ -267,7 +258,8 @@ p {
 .restaurants_item {
   height: 55px;
   width: 100%;
-  margin-left: 30px;
+  margin-bottom: 25px;
+  padding-left: 20px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -343,6 +335,8 @@ p {
 .menu_container {
   background-color: #F5F5F6;
   padding: 5%;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
   margin-top: -50px;
 }
 
@@ -353,22 +347,20 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 30px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 .name_menu .heading {
-  font-size: 1.7rem;
-  white-space: nowrap;
+  font-size: 1.5rem;
   font-family: "Shrikhand", Tahoma, Verdana, sans-serif;
 }
 
 .name_menu .far.fa-heart {
   position: relative;
   margin-bottom: 2px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
@@ -412,17 +404,28 @@ p {
       -ms-flex-pack: justify;
           justify-content: space-between;
   background-color: white;
+  border: none;
   border-radius: 15px;
   -webkit-box-shadow: 2px 4px 5px 3px #dadade;
           box-shadow: 2px 4px 5px 3px #dadade;
   overflow: hidden;
   cursor: pointer;
-  /*animation*/
+}
+
+.menu_btn:hover .menu_btn_animation {
+  -webkit-animation: largeur 1s ease forwards;
+          animation: largeur 1s ease forwards;
+}
+
+.menu_btn:hover .menu_btn_animation i {
+  -webkit-animation: rotate 1s ease forwards;
+          animation: rotate 1s ease forwards;
+  opacity: 1;
 }
 
 .menu_btn_plat {
-  width: 85%;
-  padding: 10px;
+  width: 70%;
+  padding: 5px;
 }
 
 .menu_btn_plat p {
@@ -433,5 +436,110 @@ p {
 
 .menu_btn_plat .food {
   font-weight: 700;
+}
+
+.menu_btn_prices {
+  font-weight: 500;
+  padding: 5px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 30%;
+}
+
+.menu_btn_animation {
+  background-color: #99E2D0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.5rem;
+  height: 100%;
+  width: 0%;
+  border-radius: 0 15px 15px 0;
+}
+
+.menu_btn_animation i {
+  opacity: 0;
+  color: #FFF;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes largeur {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 20%;
+  }
+}
+
+@keyframes largeur {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 20%;
+  }
+}
+
+.btn_line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.btn_order {
+  background: linear-gradient(135deg, #ff79da 0%, #9356dc 100%);
+  font-size: 1.1rem;
+  padding: 15px 60px;
+  border: none;
+  border-radius: 20px;
+  color: #FFF;
+  -webkit-box-shadow: 2px 4px 5px 3px #dadade;
+          box-shadow: 2px 4px 5px 3px #dadade;
+  cursor: pointer;
+}
+
+.btn_order:hover {
+  -webkit-box-shadow: 2px 4px 5px 3px #dadade;
+          box-shadow: 2px 4px 5px 3px #dadade;
+  -webkit-filter: brightness(1.1);
+          filter: brightness(1.1);
 }
 /*# sourceMappingURL=style.css.map */
