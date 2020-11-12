@@ -3,13 +3,84 @@
 /*Declaration des mixin*/
 /*GENERAL*/
 body {
-  background-color: #FFF;
+  background-color: #fff;
   padding: 0;
   margin: 0;
   font-size: 1rem;
-  max-width: 320px;
-  line-height: normal;
+  line-height: 1.5;
   font-family: "Roboto", Verdana, Tahoma, sans-serif;
+}
+
+/*Loading spinner*/
+.loading {
+  background-color: #f5f5f6;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-animation: turnoff 3S ease forwards;
+          animation: turnoff 3S ease forwards;
+}
+
+@-webkit-keyframes turnoff {
+  from {
+    visibility: visible;
+  }
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes turnoff {
+  from {
+    visibility: visible;
+  }
+  to {
+    visibility: hidden;
+  }
+}
+
+.loading_title {
+  font-size: 2.5rem;
+  color: #313132;
+  margin-bottom: 10px;
+}
+
+.loading_spinner {
+  width: 100px;
+  height: 100px;
+  border-radius: 80%;
+  border: 5px dashed #9356dc;
+  border-top: none;
+  -webkit-animation: rotate 2s ease infinite;
+          animation: rotate 2s ease infinite;
+}
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
 }
 
 .header {
@@ -43,171 +114,201 @@ body {
   width: 50%;
 }
 
-/*Bouton Explore our restaurants*/
-.btn {
+/* Au passage de la souris sur le bouton le curseur change de forme*/
+/* Pied de page */
+.footer {
+  padding: 40px 15px;
+  background-color: #313132;
+  color: #fff;
+}
+
+.footer_logo {
+  -webkit-filter: invert(100%) sepia(0%) saturate(7462%) hue-rotate(337deg) brightness(111%) contrast(107%);
+          filter: invert(100%) sepia(0%) saturate(7462%) hue-rotate(337deg) brightness(111%) contrast(107%);
+}
+
+.footer_menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer_menu i {
+  margin-right: 20px;
+}
+
+.footer_menu .fa-handshake {
+  margin-right: 13px;
+}
+
+.footer_menu p {
+  cursor: pointer;
+}
+
+.legal {
+  cursor: pointer;
+}
+
+.contact {
+  color: #fff;
+  margin-top: 10px;
+  display: block;
+  text-decoration: none;
+}
+
+/*Page d'accueil*/
+/*Présentation de la localisation du restaurant*/
+.adress {
+  background-color: #d2d2d2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.adress p {
+  font-size: 1rem;
+  font-family: "Roboto", Verdana, Tahoma, sans-serif;
+  margin-left: 10px;
+}
+
+/*Premiere section : Présentation de l'entreprise*/
+.presentation {
+  background: #f5f5f6;
+  height: 340px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 35px;
+  /*Bouton Explore our restaurants*/
+}
+
+.presentation_heading {
+  font-size: 1.5rem;
+}
+
+.presentation p {
+  font-size: 1.1rem;
+}
+
+.presentation .btn {
   padding: 10px 20px;
-  color: #FFF;
+  font-size: 1.1rem;
+  color: #fff;
   background: #ff79da;
   background: linear-gradient(135deg, #ff79da 0%, #9356dc 100%);
   border: none;
   border-radius: 20px;
   margin: 10px auto 30px auto;
-  width: 60%;
-  text-align: center;
   font-size: 1.1em;
-  font-family: "Roboto", Verdana, Tahoma, sans-serif;
   -webkit-box-shadow: 2px 4px 5px 3px #dadade;
           box-shadow: 2px 4px 5px 3px #dadade;
-  position: relative;
-  z-index: 2;
-}
-
-.btn:hover {
-  background: #ff77da;
-}
-
-/* Au passage de la souris sur le bouton le curseur change de forme*/
-/* Pied de page */
-.footer {
-  background-color: #313132;
-  width: 100%;
-  color: #FFF;
-  padding-bottom: 10px;
-}
-
-.footer_heading {
-  font-weight: normal;
-  font-size: 1.3em;
-  padding-left: 10%;
-  padding-top: 8%;
-  margin-top: 0;
-  font-family: "Shrikhand", Tahoma, Verdana, sans-serif;
-}
-
-.footer_menu {
-  list-style-type: none;
-  line-height: 25px;
-  padding-left: 10%;
-  font-weight: bold;
-}
-
-.footer_menu a {
-  text-decoration: none;
-  color: #cdcdd2;
-}
-
-.footer_menu a:hover {
-  color: #9356DC;
-}
-
-.fa-utensils, .fa-handshake {
-  color: #FFF;
-  margin-right: 10px;
-}
-
-/*Page d'accueil*/
-/*Premiere section : Présentation et lcoalisation de l'entreprise*/
-.presentation {
-  background: #F5F5F6;
-  text-align: center;
-  padding-bottom: 30px;
-}
-
-.presentation_address {
-  background: #ededef;
-  font-size: 1.1em;
-  margin: 0 0 20px 0;
-  padding: 10px 0 10px 0;
-}
-
-.presentation_address i {
-  margin-right: 12px;
-}
-
-.presentation_heading {
-  margin: 40px 50px 10px 50px;
-}
-
-.presentation_line {
-  font-size: 1.2em;
-  margin: 10px 15px 30px 15px;
-  font-family: "Roboto", Verdana, Tahoma, sans-serif;
-}
-
-/*Deuxième sections : Explications de la plateform*/
-.explication {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding: 10%;
-}
-
-.explication_heading {
-  font-size: 1.5rem;
-  margin-top: 40px;
-  margin-bottom: 30px;
-}
-
-.explication_items {
-  -webkit-box-shadow: 2px 4px 5px 3px #dadade;
-          box-shadow: 2px 4px 5px 3px #dadade;
-  position: relative;
-  padding: 10%;
-  border-radius: 25px;
-  margin-bottom: 10%;
-  font-size: 1rem;
-  background-color: #F5F5F6;
-}
-
-.explication_items:hover {
   cursor: pointer;
 }
 
-.explication_number {
-  position: absolute;
-  left: -5px;
-  background-color: #9356DC;
-  color: #FFF;
-  border-radius: 50%;
-  padding: 4px 8px 4px 8px;
-  font-size: 0.8rem;
+.presentation .btn:hover {
+  background: #ff77da;
 }
 
-.explication_items {
+/*Deuxième sections : Explications de la plateform*/
+.section_explication {
+  padding: 0 5%;
+}
+
+.section_explication .explication-heading {
+  font-size: 1.5rem;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.section_explication_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
-.explication_items:hover {
-  background: rgba(147, 86, 220, 0.15);
+.section_explication_items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-box-shadow: 2px 4px 5px 3px #dadade;
+          box-shadow: 2px 4px 5px 3px #dadade;
+  position: relative;
+  background-color: #f2f2f2;
+  height: 60px;
+  width: 25%;
+  cursor: pointer;
 }
 
-.fa-mobile-alt, .fa-list-ul, .fa-store {
-  margin-right: 20px;
+.section_explication_items:hover {
+  background-color: rgba(147, 86, 220, 0.2);
+}
+
+.section_explication_items .fa-mobile-alt, .section_explication_items .fa-list-ul, .section_explication_items .fa-store {
   margin-left: 20px;
-  margin-top: 10px;
+  margin-right: 20px;
   color: grey;
 }
 
-.fa-store {
-  color: #9356DC;
+.section_explication_items .fa-store {
+  color: #9356dc;
 }
 
-p {
-  font-weight: 500;
+.section_explication_items .fa-circle {
+  position: absolute;
+  font-size: 1.3rem;
+  left: -11px;
+  color: #9356dc;
+}
+
+.section_explication_items .number {
+  position: absolute;
+  left: -5px;
+  color: white;
+}
+
+.section_explication_items p {
+  font-weight: bolder;
 }
 
 /*Troisième sections : Liste des restaurants*/
 .restaurants {
-  background-color: #F5F5F6;
+  background-color: #f5f5f6;
   padding: 0 10px;
   position: relative;
 }
@@ -223,15 +324,6 @@ p {
 
 .restaurants_heading {
   text-decoration: none;
-}
-
-.restaurants_new {
-  position: absolute;
-  right: 15px;
-  padding: 5px 20px;
-  background-color: #99E2D0;
-  color: #217460;
-  border-radius: 2px;
 }
 
 .restaurants_menu {
@@ -251,8 +343,17 @@ p {
   margin-bottom: 20px;
   -webkit-box-shadow: 2px 4px 5px 3px #dadade;
           box-shadow: 2px 4px 5px 3px #dadade;
-  background: #FFF;
+  background: #fff;
   border-radius: 25px;
+}
+
+.restaurants_new {
+  position: absolute;
+  right: 15px;
+  padding: 5px 20px;
+  background-color: #99e2d0;
+  color: #217460;
+  border-radius: 2px;
 }
 
 .restaurants_item {
@@ -285,6 +386,34 @@ p {
   cursor: pointer;
 }
 
+.restaurants_item .fas.fa-heart {
+  font-size: 1.7rem;
+  position: absolute;
+  background: -webkit-linear-gradient(bottom, #ff79da, #9356dc);
+  background-clip: content-box;
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 0;
+  right: 18px;
+  top: 20px;
+}
+
+.restaurants_item .fas.fa-heart:hover {
+  opacity: 1;
+}
+
+.restaurants_item .far.fa-heart {
+  font-size: 1.7rem;
+  opacity: 1;
+  right: 18px;
+  top: 20px;
+  position: relative;
+}
+
+.restaurants_item .far.fa-heart:hover {
+  opacity: 0;
+}
+
 .restaurants_picture {
   height: 200px;
   width: 100%;
@@ -293,11 +422,6 @@ p {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
-}
-
-.fa-heart {
-  font-size: 1.4rem;
-  margin: 0px 30px 40px 15px;
 }
 
 /*Présentation des 4 menus*/
@@ -333,7 +457,7 @@ p {
 }
 
 .menu_container {
-  background-color: #F5F5F6;
+  background-color: #f5f5f6;
   padding: 5%;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
@@ -347,6 +471,7 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 30px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -357,15 +482,36 @@ p {
   font-family: "Shrikhand", Tahoma, Verdana, sans-serif;
 }
 
-.name_menu .far.fa-heart {
+.name_menu .coeur {
   position: relative;
-  margin-bottom: 2px;
-  font-size: 1.4rem;
+}
+
+.name_menu .coeur .far.fa-heart {
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
-.name_menu .far.fa-heart:hover {
+.name_menu .coeur .far.fa-heart:hover {
   opacity: 0;
+}
+
+.name_menu .fas.fa-heart {
+  position: absolute;
+  font-size: 1.7rem;
+  cursor: pointer;
+  left: -2px;
+  top: -2px;
+  background: -webkit-linear-gradient(bottom, #ff79da, #9356dc);
+  background-clip: content-box;
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 0;
+  -webkit-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
+}
+
+.name_menu .fas.fa-heart:hover {
+  opacity: 1;
 }
 
 .title {
@@ -379,7 +525,7 @@ p {
   display: block;
   width: 50%;
   height: 4px;
-  background-color: #99E2D0;
+  background-color: #99e2d0;
 }
 
 .menu_btns {
@@ -425,7 +571,7 @@ p {
 
 .menu_btn_plat {
   width: 70%;
-  padding: 5px;
+  padding: 10px;
 }
 
 .menu_btn_plat p {
@@ -454,7 +600,7 @@ p {
 }
 
 .menu_btn_animation {
-  background-color: #99E2D0;
+  background-color: #99e2d0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -472,18 +618,7 @@ p {
 
 .menu_btn_animation i {
   opacity: 0;
-  color: #FFF;
-}
-
-@-webkit-keyframes rotate {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+  color: #fff;
 }
 
 @keyframes rotate {
@@ -515,6 +650,60 @@ p {
   }
 }
 
+@-webkit-keyframes apparition {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+.menu_btn:nth-child(1) {
+  -webkit-animation: apparition 1s ease both;
+          animation: apparition 1s ease both;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.menu_btn:nth-child(2) {
+  -webkit-animation: apparition 1s ease both;
+          animation: apparition 1s ease both;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.menu_btn:nth-child(3) {
+  -webkit-animation: apparition 1s ease both;
+          animation: apparition 1s ease both;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.menu_btn:nth-child(4) {
+  -webkit-animation: apparition 1s ease both;
+          animation: apparition 1s ease both;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
 .btn_line {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -530,7 +719,7 @@ p {
   padding: 15px 60px;
   border: none;
   border-radius: 20px;
-  color: #FFF;
+  color: #fff;
   -webkit-box-shadow: 2px 4px 5px 3px #dadade;
           box-shadow: 2px 4px 5px 3px #dadade;
   cursor: pointer;
@@ -541,5 +730,18 @@ p {
           box-shadow: 2px 4px 5px 3px #dadade;
   -webkit-filter: brightness(1.1);
           filter: brightness(1.1);
+}
+
+/*Media*/
+@media screen and (max-width: 600px) {
+  .section_explication_container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .section_explication_items {
+    width: 90%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

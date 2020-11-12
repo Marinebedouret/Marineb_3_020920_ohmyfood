@@ -1,10 +1,11 @@
 /*Decalaration des variabes*/
-$color-primary:#9356DC;
-$color-secondary:#FF79DA;
-$color-tertiary:#99E2D0;
-$color-white: #FFF;
-$color-background:#F5F5F6;
-$color-footer:#313132;
+$color-primary: #9356dc;
+$color-secondary: #ff79da;
+$color-tertiary: #99e2d0;
+$color-white: #fff;
+$color-background: #f5f5f6;
+$color-footer: #313132;
+
 
 /*Declaration des mixin*/
 @mixin textroboto {
@@ -15,24 +16,60 @@ $color-footer:#313132;
     font-family: "Shrikhand", Tahoma, Verdana, sans-serif;
 }
 
-@mixin boxshadow ($color: $color-background) {
-
+@mixin boxshadow($color: $color-background) {
     box-shadow: 2px 4px 5px 3px darken($color, 10%);
-
 }
 
 /*GENERAL*/
 
 body {
-background-color: $color-white;
-padding: 0;
-margin: 0;
-font-size: 1rem;
-max-width: 320px;
-line-height: normal;
-@include textroboto;
+    background-color: $color-white;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    @include textroboto;
 }
-
+/*Loading spinner*/
+.loading{
+    background-color: $color-background;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: turnoff 3S ease forwards;
+}
+@keyframes turnoff{
+    from{
+        visibility: visible;
+    }
+    to{
+        visibility: hidden;
+    }
+}
+.loading_title{
+    font-size: 2.5rem;
+    color: $color-footer;
+    margin-bottom: 10px;
+    
+}
+.loading_spinner{
+    width: 100px;
+    height: 100px;
+    border-radius: 80%;
+    border: 5px dashed $color-primary;
+    border-top: none;
+    animation: rotate 2s ease infinite;
+}
+@keyframes rotate{
+    to{
+        transform: rotate(90deg);
+    }
+}
 
 .header {
     height: 80px;
@@ -47,145 +84,156 @@ line-height: normal;
     display: flex;
     justify-content: center;
     align-items: center;
-    img{
+    img {
         width: 50%;
     }
 }
-/*Bouton Explore our restaurants*/
-.btn {
-    padding: 10px 20px;
-    color: $color-white;
-    background: rgb(255,121,218);
-    background: linear-gradient(135deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
-    border: none;
-    border-radius: 20px;
-    margin: 10px auto 30px auto;
-    width: 60%;
-    text-align: center;
-    font-size: 1.1em;
-    @include textroboto;
-    @include boxshadow;
-    position: relative;
-    z-index: 2;
-    &:hover {
-        background: darken(rgb(255,121,218),0.35);
-    }
-}
-     /* Au passage de la souris sur le bouton le curseur change de forme*/
+
+/* Au passage de la souris sur le bouton le curseur change de forme*/
 
 /* Pied de page */
 .footer {
+    padding: 40px 15px;
     background-color: $color-footer;
-    width: 100%;
     color: $color-white;
-    padding-bottom: 10px;
-    &_heading {
-        font-weight: normal;
-        font-size: 1.3em;
-        padding-left: 10%;
-        padding-top: 8%;
-        margin-top: 0;
-        @include titlepolice;
+}
+.footer_logo {
+    filter: invert(100%) sepia(0%) saturate(7462%) hue-rotate(337deg) brightness(111%) contrast(107%);
+}
+.footer_menu {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    i {
+        margin-right: 20px;
     }
-    &_menu {
-        list-style-type: none;
-        line-height: 25px;
-        padding-left: 10%;
-        font-weight: bold;
-        a {
-            text-decoration: none;
-            color: darken($color-background, 15%);
-            &:hover {
-                color: $color-primary;
-            }
-        }
+    .fa-handshake {
+        margin-right: 13px;
+    }
+    p {
+        cursor: pointer;
     }
 }
-.fa-utensils, .fa-handshake{
-    color: $color-white;
-    margin-right: 10px;
+.legal {
+    cursor: pointer;
 }
+.contact {
+    color: $color-white;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+}
+
 /*Page d'accueil*/
-/*Premiere section : Présentation et lcoalisation de l'entreprise*/
+/*Présentation de la localisation du restaurant*/
+.adress {
+    background-color: #d2d2d2;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    p {
+        font-size: 1rem;
+        @include textroboto;
+        margin-left: 10px;
+    }
+}
+/*Premiere section : Présentation de l'entreprise*/
 
 .presentation {
     background: $color-background;
-    text-align: center;
-    padding-bottom: 30px;
-    &_address{
-        background: darken($color-background, 3%);
-        font-size: 1.1em;
-        margin: 0 0 20px 0;
-        padding: 10px 0 10px 0;
-        i{
-            margin-right: 12px;
-        }
-    }
-    &_heading{
-        margin: 40px 50px 10px 50px;
-    }
-    &_line{
-        font-size: 1.2em;
-        margin: 10px 15px 30px 15px;
-        @include textroboto;
-    }
-}
-/*Deuxième sections : Explications de la plateform*/
-.explication {
+    height: 340px;
     display: flex;
-    flex-direction:column;
-    justify-content: flex-start;
-    padding: 10%;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 0 35px;
+
     &_heading {
         font-size: 1.5rem;
-        margin-top: 40px;
-        margin-bottom: 30px;
     }
-    &_items {
+    p {
+        font-size: 1.1rem;
+    }
+    /*Bouton Explore our restaurants*/
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        color: $color-white;
+        background: rgb(255, 121, 218);
+        background: linear-gradient(135deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 100%);
+        border: none;
+        border-radius: 20px;
+        margin: 10px auto 30px auto;
+        font-size: 1.1em;
         @include boxshadow;
-        position: relative;
-        padding: 10%;
-        border-radius: 25px;
-        margin-bottom: 10%;
-        font-size: 1rem;
-        background-color:$color-background;
+        cursor: pointer;
         &:hover {
-            cursor : pointer;
+            background: darken(rgb(255, 121, 218), 0.35);
         }
     }
-    &_number {
-        position: absolute;
-        left: -5px;
-        background-color: $color-primary;
-        color: $color-white;
-        border-radius: 50%;
-        padding: 4px 8px 4px 8px;
-        font-size: 0.8rem;
-    }
-}
-.explication_items {
-    display: flex;
-    &:hover {
-        background: transparentize($color-primary,0.85);
-    }
-}
-.fa-mobile-alt, .fa-list-ul, .fa-store{ 
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-top: 10px;
-  color: grey;
 }
 
-.fa-store {
-    color: $color-primary;
-}
-p {
-    font-weight: 500;
+/*Deuxième sections : Explications de la plateform*/
+.section_explication{
+    padding: 0 5%;
+    .explication-heading{
+        font-size: 1.5rem;
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+    &_container{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+  
+    &_items{
+        display: flex;
+        margin-bottom:20px;
+        align-items: center;
+        padding: 10px;
+        border-radius:20px;
+        @include boxshadow;
+        position: relative;
+        background-color: #f2f2f2;
+        height: 60px;
+        width: 25%;
+        cursor: pointer;
+        &:hover{
+            background-color: rgba(147, 86, 220, 0.20);;
+        }
+        .fa-mobile-alt, .fa-list-ul, .fa-store{
+            margin-left: 20px;
+            margin-right: 20px;
+            color: grey;
+        }
+        .fa-store{
+            color: $color-primary;
+        }
+        .fa-circle{
+            position: absolute;
+            font-size: 1.3rem;
+            left: -11px;
+            color: $color-primary;;
+        }
+        .number{
+            position: absolute;
+            left: -5px;
+            color: white;
+        }
+        p{
+            font-weight: bolder;
+        }
+    }
+
 }
 /*Troisième sections : Liste des restaurants*/
 .restaurants {
     background-color: $color-background;
-    padding : 0 10px;
+    padding: 0 10px;
     position: relative;
     &_title {
         font-size: 1.5rem;
@@ -197,15 +245,7 @@ p {
     &_heading {
         text-decoration: none;
     }
-    &_new {
-        position: absolute;
-        right: 15px;
-        padding: 5px 20px;
-        background-color: $color-tertiary;
-        color: darken($color-tertiary, 45%);
-        border-radius: 2px;
-
-    }
+  
     &_menu {
         align-items: center;
         display: flex;
@@ -215,7 +255,14 @@ p {
         @include boxshadow($color-background);
         background: $color-white;
         border-radius: 25px;
-        
+    }
+    &_new {
+        position: absolute;
+        right: 15px;
+        padding: 5px 20px;
+        background-color: $color-tertiary;
+        color: darken($color-tertiary, 45%);
+        border-radius: 2px;
     }
     &_item {
         height: 55px;
@@ -228,7 +275,7 @@ p {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        a {
+        a{
             text-decoration: none;
             color: #000000;
             //animation des cases restaurants au survol
@@ -236,20 +283,43 @@ p {
                 cursor: pointer;
             }
         }
+        .fas.fa-heart{
+            font-size: 1.7rem;
+            position: absolute;
+            background: -webkit-linear-gradient(bottom, $color-secondary, $color-primary);
+            background-clip: content-box;
+            -webkit-background-clip: text;
+            color: transparent;
+            opacity: 0;
+            right: 18px;
+            top: 20px;
+            &:hover{
+                opacity: 1;
+            }
+        }
+        .far.fa-heart{
+            font-size: 1.7rem;
+            opacity: 1;
+            right: 18px;
+            top: 20px;
+            position: relative;
+            &:hover{
+                opacity: 0;
+            }
+        }
+
     }
 }
 .restaurants_picture {
-   height: 200px;
-   width: 100%;
-   border: 0px solid;
-   border-radius: 10px 10px 0 0;
-   object-fit: cover;
-   display: block;
+    height: 200px;
+    width: 100%;
+    border: 0px solid;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    display: block;
 }
-.fa-heart {
-    font-size: 1.4rem;
-    margin: 0px 30px 40px 15px;
-}
+
+
 /*Présentation des 4 menus*/
 .return {
     color: black;
@@ -263,49 +333,67 @@ p {
     background-repeat: no-repeat;
     height: 300px;
     margin: 0 auto;
-    &.palette{
+    &.palette {
         background-image: url("../images/the_full_palette.jpg");
     }
-    &.bastille{
+    &.bastille {
         background-image: url("../images/bastille.jpg");
     }
-    &.enchanted{
+    &.enchanted {
         background-image: url("../images/the_enchanted_plate.jpg");
     }
-    &.gourmand{
+    &.gourmand {
         background-image: url("../images/le_gourmand.jpg");
     }
 }
-.menu_container{
+.menu_container {
     background-color: $color-background;
     padding: 5%;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     margin-top: -50px;
 }
-.name_menu{
+.name_menu {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 30px;
     align-items: center;
-    .heading{
+    .heading {
         font-size: 1.5rem;
         @include titlepolice;
-        }
+    }
+    .coeur{
+        position: relative;
         .far.fa-heart{
-            position: relative;
-            margin-bottom: 2px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             cursor: pointer;
             &:hover{
                 opacity: 0;
-                }
             }
         }
-.title{
+    }
+    .fas.fa-heart{
+        position: absolute;
+        font-size: 1.7rem;
+        cursor: pointer;
+        left: -2px;
+        top: -2px;
+        background: -webkit-linear-gradient(bottom, $color-secondary, $color-primary);
+        background-clip: content-box;
+        -webkit-background-clip: text;
+        color: transparent;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+.title {
     font-size: 1.3rem;
     font-weight: normal;
     display: inline-block;
-    &:after{
+    &:after {
         content: "";
         display: block;
         width: 50%;
@@ -313,12 +401,12 @@ p {
         background-color: $color-tertiary;
     }
 }
-.menu_btns{
+.menu_btns {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
 }
-.menu_btn{
+.menu_btn {
     margin-top: 15px;
     position: relative;
     width: 100%;
@@ -331,26 +419,26 @@ p {
     @include boxshadow;
     overflow: hidden;
     cursor: pointer;
-    &:hover .menu_btn_animation{
+    &:hover .menu_btn_animation {
         animation: largeur 1s ease forwards;
     }
-    &:hover .menu_btn_animation i{
+    &:hover .menu_btn_animation i {
         animation: rotate 1s ease forwards;
         opacity: 1;
     }
-    &_plat{
+    &_plat {
         width: 70%;
-        padding: 5px;
-        p{
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
+        padding: 10px;
+        p {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
-        .food{
+        .food {
             font-weight: 700;
         }
     }
-    &_prices{
+    &_prices {
         font-weight: 500;
         padding: 5px 5px;
         display: flex;
@@ -358,7 +446,7 @@ p {
         justify-content: flex-end;
         width: 30%;
     }
-    &_animation{
+    &_animation {
         background-color: $color-tertiary;
         display: flex;
         align-items: center;
@@ -367,35 +455,61 @@ p {
         height: 100%;
         width: 0%;
         border-radius: 0 15px 15px 0;
-        i{
+        i {
             opacity: 0;
             color: $color-white;
         }
     }
 }
 @keyframes rotate {
-    from{
+    from {
         transform: rotate(0deg);
     }
-    to{
+    to {
         transform: rotate(360deg);
     }
 }
-@keyframes largeur{
-    from{
+@keyframes largeur {
+    from {
         width: 0%;
     }
-    to{
+    to {
         width: 20%;
     }
 }
-
-.btn_line{
+//animation pour les plats des menus
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(30%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+.menu_btn:nth-child(1) {
+    animation: apparition 1s ease both;
+    animation-delay: 0.2s;
+}
+.menu_btn:nth-child(2) {
+    animation: apparition 1s ease both;
+    animation-delay: 0.4s;
+}
+.menu_btn:nth-child(3) {
+    animation: apparition 1s ease both;
+    animation-delay: 0.6s;
+}
+.menu_btn:nth-child(4) {
+    animation: apparition 1s ease both;
+    animation-delay: 0.8s;
+}
+.btn_line {
     display: flex;
     justify-content: center;
 }
-.btn_order{
-    background: linear-gradient(135deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
+.btn_order {
+    background: linear-gradient(135deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 100%);
     font-size: 1.1rem;
     padding: 15px 60px;
     border: none;
@@ -403,10 +517,17 @@ p {
     color: $color-white;
     @include boxshadow;
     cursor: pointer;
-    &:hover{
-        @include boxshadow; 
-        filter: brightness(1.1) ;
+    &:hover {
+        @include boxshadow;
+        filter: brightness(1.1);
     }
-    
 }
-
+/*Media*/
+@media screen and (max-width:600px){
+    .section_explication_container{
+        flex-direction: column;
+    }
+    .section_explication_items{
+        width: 90%;
+    }
+}
